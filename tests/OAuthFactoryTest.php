@@ -16,4 +16,13 @@ class OAuthFactoryTest extends \TestCase
     {
         Helper::factory('nijibox');
     }
+
+    public function testExistComponent()
+    {
+        $component = Helper::factory('google');
+        $this->assertInstanceOf('App\OAuth\Component\Google', $component);
+        $this->assertInstanceOf('App\OAuth\AbstractComponent', $component);
+        $this->assertEquals($component->getProviderName(), 'google');
+    }
+
 }
