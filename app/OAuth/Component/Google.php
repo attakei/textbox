@@ -2,9 +2,9 @@
 
 namespace App\OAuth\Component;
 
-use App\OAuth\AbstractComponent;
+use App\OAuth\Component;
 
-class Google extends AbstractComponent
+class Google extends Component
 {
     protected $provider = 'google';
 }

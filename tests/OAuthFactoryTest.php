@@ -3,7 +3,7 @@
 use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
-use App\OAuth\Helper;
+use App\OAuth\Component;
 
 
 class OAuthFactoryTest extends \TestCase
@@ -14,14 +14,14 @@ class OAuthFactoryTest extends \TestCase
      */
     public function testNotFound()
     {
-        Helper::factory('nijibox');
+        Component::factory('nijibox');
     }
 
     public function testExistComponent()
     {
-        $component = Helper::factory('google');
+        $component = Component::factory('google');
         $this->assertInstanceOf('App\OAuth\Component\Google', $component);
-        $this->assertInstanceOf('App\OAuth\AbstractComponent', $component);
+        $this->assertInstanceOf('App\OAuth\Component', $component);
         $this->assertEquals($component->getProviderName(), 'google');
     }
 
