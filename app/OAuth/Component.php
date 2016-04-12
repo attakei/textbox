@@ -7,7 +7,7 @@ use Socialite;
 
 /**
  */
-class Component
+abstract class Component
 {
     protected $provider;
 
@@ -34,7 +34,7 @@ class Component
         return $this->provider;
     }
 
-    public function bindUser()
+    public function bindUserData()
     {
         if ( is_null($this->userData) ) {
             $this->userData = $this->driver->user();
@@ -57,4 +57,7 @@ class Component
         $component = new $ComponentClass($driver, $config);
         return $component;
     }
+
+    abstract public function getEmail();
+    abstract public function getName();
 }

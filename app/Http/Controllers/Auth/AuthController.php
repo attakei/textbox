@@ -11,6 +11,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 use Socialite;
+use App\OAuth\Component;
 
 
 class AuthController extends Controller
@@ -89,23 +90,15 @@ class AuthController extends Controller
     public function callbackFromProvider(Request $request, Guard $auth)
     {
         // TODO: Oauthドライバー名が固定されている
-        $userData = Socialite::with('google')->user();
-        $user = User::query()->where('email', '=', $userData->getEmail())->first();
+        $component = Component::factory('google');
+
+        $user = User::query()->where('email', '=', $component->getEmail())->first();
         if ( is_null($user) ) {
             $user = User::create([
-                'name' => $userData->getName(),
-                'email' => $userData->getEmail(),
+                'name' => $component->getName(),
+                'email' => $component->getEmail(),
                 'password' => password_hash('password', CRYPT_BLOWFISH),
             ]);
-            $user->save();
-        }
-        // 名前の取得に失敗したら、メールアドレスから作り直す
-        // TODO: 汎用性がない
-        if ( $user->name == '' ) {
-            $mail = $userData->getEmail();
-            list($name, $domain) = explode('@', $mail);
-            $name = str_replace('.', ' ', $name);
-            $user->name = ucwords($name);
             $user->save();
         }
         $auth->login($user);
