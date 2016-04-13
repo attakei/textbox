@@ -94,12 +94,9 @@ class AuthController extends Controller
 
     public function redirectToProvider($provider)
     {
-        $driver = Socialite::driver($provider);
-        $domain = Config::get('services.google.apps_domain');
-        if ($domain != '') {
-            $driver->with(['hd' => $domain]);
-        }
-        return $driver->redirect();
+        $component = Component::factory($provider);
+        $component->configureDriver();
+        return $component->getDriver()->redirect();
     }
 
     public function callbackFromProvider(Request $request, Guard $auth, $provider)

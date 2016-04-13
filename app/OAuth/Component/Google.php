@@ -8,6 +8,14 @@ class Google extends Component
 {
     protected $provider = 'google';
 
+    public function configureDriver()
+    {
+        $domain = config('services.google.apps_domain', '');
+        if ($domain != '') {
+            $this->driver->with(['hd' => $domain]);
+        }
+    }
+
     public function getEmail()
     {
         return $this->bindUserData()->getEmail();

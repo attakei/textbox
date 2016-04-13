@@ -34,6 +34,19 @@ abstract class Component
         return $this->provider;
     }
 
+    public function getDriver()
+    {
+        return $this->driver;
+    }
+
+    /**
+     * OAuthドライバーの追加設定処理を行う（ログイン前処理用）
+     */
+    public function configureDriver()
+    {
+
+    }
+
     public function bindUserData()
     {
         if ( is_null($this->userData) ) {
