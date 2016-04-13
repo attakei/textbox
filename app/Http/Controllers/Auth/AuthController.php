@@ -12,6 +12,7 @@ use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 use Socialite;
 use App\OAuth\Component;
+use App\OAuth\ProviderNotFound;
 
 
 class AuthController extends Controller
@@ -27,7 +28,9 @@ class AuthController extends Controller
     |
     */
 
-    use AuthenticatesAndRegistersUsers, ThrottlesLogins;
+    use AuthenticatesAndRegistersUsers, ThrottlesLogins {
+        AuthenticatesAndRegistersUsers::showLoginForm as showLoginFormOrigin;
+    }
 
     /**
      * Where to redirect users after login / registration.
@@ -74,6 +77,19 @@ class AuthController extends Controller
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
         ]);
+    }
+
+    public function showLoginForm()
+    {
+        $oauthProvider_ = config('auth.oauth_provider');
+        try {
+            $component = Component::factory($oauthProvider_);
+        } catch (ProviderNotFound $e) {
+            $component = null;
+        }
+        $view = $this->showLoginFormOrigin();
+        $view->with('oauth', $component);
+        return $view;
     }
 
     public function redirectToProvider($provider)

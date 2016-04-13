@@ -62,7 +62,7 @@
                 </div>
             </div>
             @endif
-            @if(config('auth.has_oauth'))
+            @if( !is_null($oauth) )
             <div class="panel panel-default">
                 <div class="panel-heading">OAuth認証</div>
                 <div class="panel-body">
