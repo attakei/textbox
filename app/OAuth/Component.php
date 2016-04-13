@@ -60,4 +60,5 @@ abstract class Component
 
     abstract public function getEmail();
     abstract public function getName();
+    abstract public function getFormLabel();
 }

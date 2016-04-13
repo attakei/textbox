@@ -27,4 +27,9 @@ class Google extends Component
         return $name;
     }
 
+    public function getFormLabel()
+    {
+        return 'Googleアカウントでログイン';
+    }
+
 }
