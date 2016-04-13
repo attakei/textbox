@@ -66,7 +66,7 @@
                 <div class="panel-heading">OAuth認証</div>
                 <div class="panel-body">
                     <div class="col-md-offset-2">
-                        <form class="form-horizontal" role="form" method="POST" action="{{ route('auth_oauth_google') }}">
+                        <form class="form-horizontal" role="form" method="POST" action="{{ route('auth_oauth_provider', ['provider' => config('auth.oauth_provider')]) }}">
                         {!! csrf_field() !!}
                         <button type="submit" class="btn btn-primary">
                             <i class="fa fa-btn fa-sign-in"></i>Googleアカウントでログイン

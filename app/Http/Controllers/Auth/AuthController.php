@@ -76,10 +76,9 @@ class AuthController extends Controller
         ]);
     }
 
-    public function redirectToProvider()
+    public function redirectToProvider($provider)
     {
-        // TODO: Oauthドライバー名が固定されている
-        $driver = Socialite::driver('google');
+        $driver = Socialite::driver($provider);
         $domain = Config::get('services.google.apps_domain');
         if ($domain != '') {
             $driver->with(['hd' => $domain]);
@@ -87,10 +86,9 @@ class AuthController extends Controller
         return $driver->redirect();
     }
 
-    public function callbackFromProvider(Request $request, Guard $auth)
+    public function callbackFromProvider(Request $request, Guard $auth, $provider)
     {
-        // TODO: Oauthドライバー名が固定されている
-        $component = Component::factory('google');
+        $component = Component::factory($provider);
 
         $user = User::query()->where('email', '=', $component->getEmail())->first();
         if ( is_null($user) ) {

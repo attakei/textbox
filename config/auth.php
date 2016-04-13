@@ -104,4 +104,5 @@ return [
         ],
     ],
 
+    'oauth_provider' => env('OAUTH_PROVIDER', ''),
 ];
