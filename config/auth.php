@@ -105,4 +105,5 @@ return [
     ],
 
     'oauth_provider' => env('OAUTH_PROVIDER', ''),
+    'has_oauth' => boolval(env('OAUTH_PROVIDER', false)),
 ];
