@@ -61,6 +61,9 @@ abstract class Component
             case 'google':
                 $ComponentClass = '\\App\\OAuth\\Component\\Google';
                 break;
+            case 'twitter':
+                $ComponentClass = '\\App\\OAuth\\Component\\Twitter';
+                break;
             default:
                 throw new ProviderNotFound("Provider '${provider}' is not found.");
                 break;

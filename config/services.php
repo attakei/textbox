@@ -41,4 +41,10 @@ return [
         'redirect' => env('OAUTH_REDIRECT', 'http://your-callback-url'),
         'apps_domain' => env('OAUTH_GOOGLE_APPS_DOMAIN', ''),
     ],
+
+    'twitter' => [
+        'client_id' => env('OAUTH_CLIENT', 'your-github-app-id'),
+        'client_secret' => env('OAUTH_SECRET', 'your-github-app-secret'),
+        'redirect' => env('OAUTH_REDIRECT', 'http://your-callback-url'),
+    ],
 ];
