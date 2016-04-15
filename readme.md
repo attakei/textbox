@@ -2,6 +2,17 @@
 
 PHPで実装された、プライベート環境向けQiita系サイトです
 
+## バージョン
+
+0.1.0
+
+## 眺める
+
+http://textbox-demo.nijibox.net/ にあります
+
+* User: user1@example.com
+* Pass: password1
+
 ## 動かす
 
 ### 必要環境
@@ -18,6 +29,7 @@ $ composer install
 $ php artisan migrate
 $ php artisan serve
 ```
+
 
 ## License
 

@@ -47,4 +47,8 @@ return [
         'client_secret' => env('OAUTH_SECRET', 'your-github-app-secret'),
         'redirect' => env('OAUTH_REDIRECT', 'http://your-callback-url'),
     ],
+
+    'ga' => [
+        'tracking_id' => env('GA_TRACKING_ID', false),
+    ],
 ];

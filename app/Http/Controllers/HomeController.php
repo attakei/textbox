@@ -36,7 +36,7 @@ class HomeController extends Controller
     public function dashboard()
     {
         $latestArticles = Article::latestInternal()->limit(5)->get();
-        $tagSummary = ArticleTag::calcSummary()->limit(10)->get();
+        $tagSummary = ArticleTag::calcSummaryLeast()->limit(10)->get();
 
         return view('home.dashboard', [
             'tagSummary' => $tagSummary,
