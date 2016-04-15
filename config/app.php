@@ -2,7 +2,7 @@
 
 return [
     'name' => env('APP_NAME', 'textbox'),
-    'version' => '0.0.2',
+    'version' => '0.1.0',
     'repo' => 'https://github.com/nijibox/textbox',
 
     /*

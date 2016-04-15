@@ -41,4 +41,8 @@ return [
         'redirect' => env('OAUTH_REDIRECT', 'http://your-callback-url'),
         'apps_domain' => env('OAUTH_GOOGLE_APPS_DOMAIN', ''),
     ],
+
+    'ga' => [
+        'tracking_id' => env('GA_TRACKING_ID', false),
+    ],
 ];

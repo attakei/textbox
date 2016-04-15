@@ -47,10 +47,5 @@
 @endsection
 
 @section('content.sub')
-<h3>タグ</h3>
-<ol>
-    @foreach($tagSummary as $tag)
-    <li><a href="{{ route('list_by_tag', $tag->body) }}">{{ $tag->body }} [{{ $tag->count }}]</a></li>
-    @endforeach
-</ol>
+@include('snippets.tags_least', ['latestTags' => $tagSummary])
 @endsection

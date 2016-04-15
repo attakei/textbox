@@ -9,8 +9,7 @@ test:
 deployment:
   demo:
     branch:
-      - master
-      - demo_env
+      - release/*
     commands:
       - git push $DEPLOY_HOST:$DEPLOY_TARGET HEAD:master
       - ssh $DEPLOY_HOST enter $DEPLOY_TARGET web php artisan migrate

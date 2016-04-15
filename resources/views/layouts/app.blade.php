@@ -72,6 +72,7 @@
 
                             <ul class="dropdown-menu" role="menu">
                                 <li><a href="{{ url('/mypage') }}"><i class="fa fa-btn fa-user"></i>マイページ</a></li>
+                                <li><a href="{{ url('/users/_me/profile') }}"><i class="fa fa-btn fa-edit"></i>プロフィール編集</a></li>
                                 @if(Auth::user()->is_admin)
                                 <li><a href="{{ route('get_page_list') }}"><i class="fa fa-btn fa-shield"></i>管理メニュー(ページ編集)</a></li>
                                 @endif
@@ -97,6 +98,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     {{-- <script src="{{ elixir('js/app.js') }}"></script> --}}
+    @include('snippets.ga')
     @yield('page_js')
 </body>
 </html>

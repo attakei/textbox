@@ -151,7 +151,7 @@ class ArticleController extends Controller
     public function getList()
     {
         $articles = Article::latestInternal()->paginate(static::ITEMS_PER_PAGE);
-        $tagSummary = ArticleTag::calcSummary()->limit(10)->get();
+        $tagSummary = ArticleTag::calcSummaryLeast()->limit(10)->get();
 
         // TODO: 記事がない場合の処理が必要？
 
@@ -172,7 +172,7 @@ class ArticleController extends Controller
                 $query->where('body', '=', $tagBody);
             })
             ->paginate(static::ITEMS_PER_PAGE);
-        $tagSummary = ArticleTag::calcSummary()->limit(10)->get();
+        $tagSummary = ArticleTag::calcSummaryLeast()->limit(10)->get();
 
         // Render articles
         return view('article.list_by_tag', [
