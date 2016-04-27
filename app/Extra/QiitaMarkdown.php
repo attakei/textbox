@@ -37,6 +37,7 @@ class QiitaMarkdown extends GithubMarkdown
      */
     protected function renderCode($block)
 	{
+        $block['filename'] = isset($block['filename']) ? $block['filename'] : '';
         $template = <<< END_OF_FORMAT
 <div class="code-frame" data-lang="text">
 <div class="code-lang"><span class="bold">%s</span></div>
