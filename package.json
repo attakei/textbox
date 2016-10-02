@@ -5,9 +5,11 @@
   },
   "dependencies": {
     "@angular/core": "~2.0.1",
-    "rxjs": "5.0.0-beta.12",
-    "zone.js": "^0.6.25",
+    "bootstrap-sass": "^3.0.0",
+    "elixir-typescript": "^2.0.0",
     "laravel-elixir": "^4.0.0",
-    "bootstrap-sass": "^3.0.0"
+    "markdown-it": "^8.0.0",
+    "rxjs": "5.0.0-beta.12",
+    "zone.js": "^0.6.25"
   }
 }
