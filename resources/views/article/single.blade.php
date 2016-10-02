@@ -68,6 +68,11 @@
 </div>
 @endsection
 
+@section('page_js')
+<script>
+var articleJson = JSON.parse({!! json_encode($article) !!});
+</script>
+@endsection
 
 @section('page_css')
 <style>
