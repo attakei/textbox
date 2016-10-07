@@ -14,6 +14,8 @@ var elixir = require('laravel-elixir');
 elixir(function(mix) {
     // CSS
     mix.sass('app.scss');
+    // Riot tags
+     mix.copy('resources/assets/tag', 'public/tag');
     // JS
     mix.browserify('article.js');
 
