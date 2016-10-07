@@ -19,7 +19,7 @@
 @section('page_js')
 <script src="https://cdnjs.cloudflare.com/ajax/libs/riot/2.5.0/riot+compiler.min.js"></script>
 <script src="/js/article.js"></script>
-<script type="riot/tag" src="/tag/markdown.tag"></script>
+<script type="riot/tag" src="/tag/view-markdown.tag"></script>
 
 <script>
 var pageJson = {!! json_encode($page) !!};
